@@ -26,8 +26,21 @@ studentsusernames.filter(students => students.score < 50).forEach(students => {
     let studentusername = prompt("Enter Student Name:");
     var score = prompt("Enter Student Score:");
     document.getElementById("passingStudents").innerHTML += studentusername + " passed with " + score + " score<br>";
-    if(score < 50){
+    if(score < 50 ){
         document.getElementById("failingStudents").innerHTML += studentusername + " Failed with " + score + " score<br>";
+    }else if(score === 50){
+        document.getElementById("passingStudents").innerHTML += studentusername + " passed with " + score + " score<br>";
     }
+    if(studentusername === "" || score === ""){
+        alert("Please Enter Student Name and Score!");
+    }
+    else if (score < 0 || score > 100){
+        alert("Please Enter a Valid Score between 0 and 100!");
+    }else if (isNaN(score)){
+        alert("Please Enter a number Score!");
+    }else if(studentusername.length > 20 || score.length > 4){
+        alert("Please Enter a Valid Student Name and Score!");
+  }else{
+        studentsusernames.push({ studentusername: studentusername, score: score });
   }
-
+}
