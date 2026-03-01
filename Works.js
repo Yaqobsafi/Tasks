@@ -1,19 +1,33 @@
-let students = [
+let studentsusernames = [
     
-      {  studentname : "Hamed" , score : "100" },
-       { studentname : "Sami" ,  score : "90" },
-       { studentname : "Kihan" ,  score : "92" },
-       { studentname : "Burhan" ,  score : "95" },
-       { studentname : "Rafi" ,  score : "91" },
-       { studentname : "Farzam" ,  score : "90" },
-        { studentname : "Yaqob" , score : "50" },
-        { studentname : "Mohammed" , score : "30" },
-        { studentname : "Ali" , score : "19" },
-        { studentname : "Rahmat" , score : "18" },
-        { studentname : "Ahmad" , score : "10" },
-        { studentname : "Mustafa" , score : "0" }
+      { studentusername : "Hamed" , score : "100" },
+       { studentusername : "Sami" ,  score : "90" },
+       { studentusername : "Kihan" ,  score : "92" },
+       { studentusername : "Burhan" ,  score : "95" },
+       { studentusername : "Rafi" ,  score : "91" },
+       { studentusername : "Farzam" ,  score : "90" },
+        { studentusername : "Yaqob" , score : "52" },
+        { studentusername : "Mohammed" , score : "30" },
+        { studentusername : "Ali" , score : "19" },
+        { studentusername : "Rahmat" , score : "18" },
+        { studentusername : "Ahmad" , score : "10" },
+        { studentusername : "Mustafa" , score : "0" }
     
 ];
-students.filter(students => students.score > 50).forEach(students => alert(students.studentname +  " passed with "+ students.score + " score"))
-students.filter(students => students.score < 50).forEach(students => alert(students.studentname +  " Failed with "+ students.score + " score"))
+studentsusernames.filter(students => students.score > 50).forEach(students => {
+    let passingStudentsElement = document.getElementById("passingStudents");
+    passingStudentsElement.innerHTML += students.studentusername +  " passed with "+ students.score + " score<br>";
+});
+studentsusernames.filter(students => students.score < 50).forEach(students => {
+    let failingStudentsElement = document.getElementById("failingStudents");
+    failingStudentsElement.innerHTML += students.studentusername +  " Failed with "+ students.score + " score<br>";
+});
+  function getData(){
+    let studentusername = prompt("Enter Student Name:");
+    var score = prompt("Enter Student Score:");
+    document.getElementById("passingStudents").innerHTML += studentusername + " passed with " + score + " score<br>";
+    if(score < 50){
+        document.getElementById("failingStudents").innerHTML += studentusername + " Failed with " + score + " score<br>";
+    }
+  }
 
